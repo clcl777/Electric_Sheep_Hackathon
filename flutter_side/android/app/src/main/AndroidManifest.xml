@@ -5,7 +5,8 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:label="metele">
+        android:label="metele"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -35,5 +36,6 @@
             android:name="flutterEmbedding"
             android:value="2" />
 
+        <meta-data android:name="flutterEmbedding" android:value="2" />
     </application>
 </manifest>

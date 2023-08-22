@@ -6,7 +6,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-
+import 'package:flutter_side/map.dart';
+import 'package:flutter_side/model.dart';
 //import 'package:login_ui/views/auth_page/login.dart';
 
 void main() {
@@ -41,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My diARry'),
+        title: Text('ログイン'),
         backgroundColor: Colors.blue,
       ),
       body: Center(
@@ -84,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                     // ここにボタンを押した時に呼ばれるコードを書く
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => NextPage()),
+                      MaterialPageRoute(builder: (context) => ModelPage()),
                     );
                   },
                 ),
@@ -93,74 +94,6 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class NextPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Google Maps Demo',
-      home: MapSample(),
-    );
-  }
-}
-
-class MapSample extends StatefulWidget {
-  const MapSample({Key? key}) : super(key: key);
-
-  @override
-  State<MapSample> createState() => MapSampleState();
-}
-
-class MapSampleState extends State<MapSample> {
-  Position? currentPosition;
-  late GoogleMapController _controller;
-  late StreamSubscription<Position> positionStream;
-  //初期位置
-  final CameraPosition _kGooglePlex = const CameraPosition(
-    target: LatLng(43.0686606, 141.3485613),
-    zoom: 14,
-  );
-
-  final LocationSettings locationSettings = const LocationSettings(
-    accuracy: LocationAccuracy.high, //正確性:highはAndroid(0-100m),iOS(10m)
-    distanceFilter: 100,
-  );
-
-  @override
-  void initState() {
-    super.initState();
-
-    //位置情報が許可されていない時に許可をリクエストする
-    Future(() async {
-      LocationPermission permission = await Geolocator.checkPermission();
-      if(permission == LocationPermission.denied){
-        await Geolocator.requestPermission();
-      }
-    });
-
-    //現在位置を更新し続ける
-    positionStream =
-        Geolocator.getPositionStream(locationSettings: locationSettings)
-            .listen((Position? position) {
-          currentPosition = position;
-          print(position == null
-              ? 'Unknown'
-              : '${position.latitude.toString()}, ${position.longitude.toString()}');
-        });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return GoogleMap(
-      mapType: MapType.normal,
-      initialCameraPosition: _kGooglePlex,
-      myLocationEnabled: true,//現在位置をマップ上に表示
-      onMapCreated: (GoogleMapController controller) {
-        _controller = controller;
-      },
     );
   }
 }
