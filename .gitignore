@@ -1,3 +1,6 @@
 .DS_Store
-
-.env
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
