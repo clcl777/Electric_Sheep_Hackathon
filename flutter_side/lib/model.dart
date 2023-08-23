@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           autoRotate: true,
           cameraControls: true,
         ),
-      ),
+      ),  
     );
   }
 }
