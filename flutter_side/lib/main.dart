@@ -88,17 +88,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
-// class NextPage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Flutter'),
-//       ),
-//       body: Container(
-//         color: Colors.red,
-//       ),
-//     );
-//   }
-// }
