@@ -1,9 +1,17 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_side/map.dart';
 import 'package:flutter_side/model.dart';
 //import 'package:login_ui/views/auth_page/login.dart';
 
 void main() {
+  await dotenv.load(fileName: '.env');
   runApp(const MyApp());
 }
 
@@ -89,3 +97,4 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
