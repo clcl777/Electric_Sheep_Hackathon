@@ -64,8 +64,6 @@ flutter:
   assets:
     - assets/model/circle.glb
     - assets/model/circle.usdz
-
-  assets:
     - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
