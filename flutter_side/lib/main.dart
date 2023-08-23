@@ -4,14 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_side/map.dart';
-import 'package:flutter_side/model.dart';
+import 'package:metele/map.dart';
+//import 'package:flutter_side/model.dart';
+
+import 'model.dart';
 //import 'package:login_ui/views/auth_page/login.dart';
 
 void main() {
-  await dotenv.load(fileName: '.env');
   runApp(const MyApp());
 }
 
@@ -53,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
             children: <Widget>[
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                 child: TextFormField(
                   decoration: const InputDecoration(
                     labelText: 'ユーザー名を入力してください',
@@ -62,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                 child: TextFormField(
                   obscureText: _isObscure,
                   decoration: InputDecoration(
@@ -85,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                     // ここにボタンを押した時に呼ばれるコードを書く
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ModelPage()),
+                      MaterialPageRoute(builder: (context) => MapPage()),
                     );
                   },
                 ),
