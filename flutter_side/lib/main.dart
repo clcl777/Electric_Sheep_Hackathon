@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_side/map.dart';
 //import 'package:login_ui/views/auth_page/login.dart';
 
 void main() {
@@ -89,16 +89,16 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-class NextPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Flutter'),
-      ),
-      body: Container(
-        color: Colors.red,
-      ),
-    );
-  }
-}
+// class NextPage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Flutter'),
+//       ),
+//       body: Container(
+//         color: Colors.red,
+//       ),
+//     );
+//   }
+// }
