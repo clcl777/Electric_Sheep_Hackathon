@@ -16,7 +16,7 @@ class ModelPage extends StatelessWidget {
           autoRotate: true,
           cameraControls: true,
         ),
-      ),
+      ),  
     );
   }
 }
