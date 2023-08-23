@@ -10,8 +10,8 @@ class ModelPage extends StatelessWidget {
         appBar: AppBar(title: const Text("Model Viewer")),
         // ①ModelViewerウィジェットの各プロパティを設定する
         body: ModelViewer(
-          src: 'https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb',
-          iosSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',
+          src: 'assets/model/circle.glb',
+          iosSrc: 'assets/model/circle.usdz',
           ar: true,
           autoRotate: true,
           cameraControls: true,
