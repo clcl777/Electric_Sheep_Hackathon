@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_side/map.dart';
+import 'package:flutter_side/model.dart';
 //import 'package:login_ui/views/auth_page/login.dart';
 
 void main() {
@@ -33,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('JboyApp'),
+        title: Text('ログイン'),
         backgroundColor: Colors.blue,
       ),
       body: Center(
@@ -76,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                     // ここにボタンを押した時に呼ばれるコードを書く
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => NextPage()),
+                      MaterialPageRoute(builder: (context) => ModelPage()),
                     );
                   },
                 ),
