@@ -312,6 +312,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.6.1"
+  native_ar_viewer:
+    dependency: "direct main"
+    description:
+      name: native_ar_viewer
+      sha256: "083e2c02bf79fd2322b593eb46e0a59866a261d8cea507c06a8cfab5d95d3691"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   path:
     dependency: transitive
     description:
