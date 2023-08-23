@@ -1,57 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:ar_flutter_plugin/ar_flutter_plugin.dart';
-
-class ARModel extends StatefulWidget {
-  const ARModel({Key? key}) : super(key: key);
-
-  @override
-  _ARModelState createState() => _ARModelState();
-}
-
-class _ARModelState extends State<ARModel> {
-  late ArFlutterController arController;
-
-  @override
-  void initState() {
-    super.initState();
-    arController = ArFlutterController();
-  }
-
-  @override
-  void dispose() {
-    arController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('AR Model Example'),
-      ),
-      body: ArFlutterView(
-        controller: arController,
-        onArViewCreated: (ArFlutterController controller) {
-          arController = controller;
-          // Load your AR model using arController.loadModel(...)
-        },
-      ),
-    );
-  }
-}
+import 'package:model_viewer_plus/model_viewer_plus.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'My diARry',
-      home: ARModel(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(title: const Text("Model Viewer")),
+        body: ModelViewer(
+          src: 'https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb',
+          iosSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',
+          ar: true,
+          autoRotate: true,
+          cameraControls: true,
+        ),
+      ),
     );
   }
 }
