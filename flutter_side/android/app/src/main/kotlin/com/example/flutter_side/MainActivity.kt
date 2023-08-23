@@ -1,4 +1,4 @@
-package com.example.flutter_side
+package com.example.metele
 
 import io.flutter.embedding.android.FlutterActivity
 
