@@ -73,6 +73,9 @@ class MapSampleState extends State<MapSample> {
   static final LatLng _kMapCenter2 = LatLng(35.1506868, 136.903314);
   static final LatLng _kMapCenter1 = LatLng(35.2, 136.9064);
   static final LatLng _kMapCenter3 = LatLng(35.17, 136.904314);
+  static final LatLng _kMapCenter4 = LatLng(35.6586, 139.7454);
+  static final LatLng _kMapCenter5 = LatLng(35.3606, 138.7274);
+  static final LatLng _kMapCenter6 = LatLng(34.9543, 137.1743);
 
   void setCustomMapPin() async {
     pinLocationIcon = await BitmapDescriptor.fromAssetImage(
@@ -112,7 +115,7 @@ class MapSampleState extends State<MapSample> {
         markerId: MarkerId("marker_1"),
         position: _kMapCenter1,
         infoWindow: InfoWindow(title: "2006/01/01", snippet: '友達'),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
         onTap: () {
           // ピンのタップ時の処理
           //_navigateToMarkerDetail('marker_1'); // ピンのIDを渡す
@@ -124,7 +127,31 @@ class MapSampleState extends State<MapSample> {
         markerId: MarkerId("marker_2"),
         position: _kMapCenter2,
         infoWindow: InfoWindow(title: "2023/08/24", snippet: '審査員'),
-        //icon: pinLocationIcon,
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+        onTap: _launchAR,
+      ),
+      Marker(
+        markerId: MarkerId("marker_4"),
+        position: _kMapCenter4,
+        infoWindow: InfoWindow(title: "2023/08/17", snippet: '好きピ'),        
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueMagenta),
+
+        onTap: _launchAR,
+      ),
+      Marker(
+        markerId: MarkerId("marker_5"),
+        position: _kMapCenter5,
+        infoWindow: InfoWindow(title: "2023/07/24", snippet: '先輩'),        
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueMagenta),
+
+        onTap: _launchAR,
+      ),
+      Marker(
+        markerId: MarkerId("marker_6"),
+        position: _kMapCenter6,
+        infoWindow: InfoWindow(title: "2023/08/23", snippet: '友達'),        
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
+
         onTap: _launchAR,
       ),
     };
