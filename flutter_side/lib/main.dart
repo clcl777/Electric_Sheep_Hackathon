@@ -10,6 +10,8 @@ import 'package:metele/map.dart';
 import 'model.dart';
 //import 'package:login_ui/views/auth_page/login.dart';
 
+import 'nativeAR.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -84,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                     // ここにボタンを押した時に呼ばれるコードを書く
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MapPage()),
+                      MaterialPageRoute(builder: (context) => ARPage()),
                     );
                   },
                 ),
@@ -96,4 +98,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
