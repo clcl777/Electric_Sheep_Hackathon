@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:metele/MarkerDetailScreen.dart';
-
 import 'package:native_ar_viewer/native_ar_viewer.dart';
+
 
 class MapPage extends StatelessWidget {
   @override
@@ -34,6 +34,8 @@ class MapSampleState extends State<MapSample> {
   _launchAR() async {
     await NativeArViewer.launchAR('https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb');
   }
+
+
 
   //初期位置
   final CameraPosition _kGooglePlex = const CameraPosition(
@@ -63,23 +65,53 @@ class MapSampleState extends State<MapSample> {
     positionStream =
         Geolocator.getPositionStream(locationSettings: locationSettings)
             .listen((Position? position) {
-      currentPosition = position;
-      print(position == null
-          ? 'Unknown'
-          : '${position.latitude.toString()}, ${position.longitude.toString()}');
-    });
+          currentPosition = position;
+          print(position == null
+              ? 'Unknown'
+              : '${position.latitude.toString()}, ${position.longitude
+              .toString()}');
+        });
   }
 
   static final LatLng _kMapCenter2 = LatLng(35.1506868, 136.903314);
-  static final LatLng _kMapCenter1 = LatLng(36.1814, 136.9063);
+  static final LatLng _kMapCenter1 = LatLng(35.2, 136.9064);
+  static final LatLng _kMapCenter3 = LatLng(35.17, 136.904314);
 
   void setCustomMapPin() async {
     pinLocationIcon = await BitmapDescriptor.fromAssetImage(
         ImageConfiguration(devicePixelRatio: 1), 'assets/heart2.png');
   }
 
+  _myDialog() {
+    showDialog(
+      context: context,
+      builder: (context) =>
+          AlertDialog(
+            title: const Text("離れすぎてるよ～"),
+            content: const Text("もう少し近づいたら見れるよ！"),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text("close"),
+              )
+            ],
+          ),
+    );
+  }
+
   Set<Marker> _createMarker() {
     return {
+      Marker(
+        markerId: MarkerId("marker_3"),
+        position: _kMapCenter3,
+        infoWindow: InfoWindow(title: "2007/11/09", snippet: 'お母さん'),
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+        onTap: () {
+          // ピンのタップ時の処理
+        },
+      ),
       Marker(
         markerId: MarkerId("marker_1"),
         position: _kMapCenter1,
@@ -88,12 +120,14 @@ class MapSampleState extends State<MapSample> {
         onTap: () {
           // ピンのタップ時の処理
           //_navigateToMarkerDetail('marker_1'); // ピンのIDを渡す
+          //ポップアップメッセージ
+          _myDialog();
         },
       ),
       Marker(
         markerId: MarkerId("marker_2"),
         position: _kMapCenter2,
-        infoWindow: InfoWindow(title: "2023/08/24", snippet: 'パパラピーズ'),
+        infoWindow: InfoWindow(title: "2023/08/24", snippet: '審査員'),
         //icon: pinLocationIcon,
         onTap: _launchAR,
       ),
