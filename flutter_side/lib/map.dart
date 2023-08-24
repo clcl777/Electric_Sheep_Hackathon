@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -43,7 +42,7 @@ class MapSampleState extends State<MapSample> {
     //位置情報が許可されていない時に許可をリクエストする
     Future(() async {
       LocationPermission permission = await Geolocator.checkPermission();
-      if(permission == LocationPermission.denied){
+      if (permission == LocationPermission.denied) {
         await Geolocator.requestPermission();
       }
     });
@@ -52,11 +51,11 @@ class MapSampleState extends State<MapSample> {
     positionStream =
         Geolocator.getPositionStream(locationSettings: locationSettings)
             .listen((Position? position) {
-          currentPosition = position;
-          print(position == null
-              ? 'Unknown'
-              : '${position.latitude.toString()}, ${position.longitude.toString()}');
-        });
+      currentPosition = position;
+      print(position == null
+          ? 'Unknown'
+          : '${position.latitude.toString()}, ${position.longitude.toString()}');
+    });
   }
 
   @override
@@ -64,7 +63,7 @@ class MapSampleState extends State<MapSample> {
     return GoogleMap(
       mapType: MapType.normal,
       initialCameraPosition: _kGooglePlex,
-      myLocationEnabled: true,//現在位置をマップ上に表示
+      myLocationEnabled: true, //現在位置をマップ上に表示
       onMapCreated: (GoogleMapController controller) {
         _controller = controller;
       },
