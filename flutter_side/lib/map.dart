@@ -6,6 +6,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:metele/MarkerDetailScreen.dart';
 
+import 'package:native_ar_viewer/native_ar_viewer.dart';
+
 class MapPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,9 @@ class MapSampleState extends State<MapSample> {
   late StreamSubscription<Position> positionStream;
   late BitmapDescriptor pinLocationIcon;
 
+  _launchAR() async {
+    await NativeArViewer.launchAR('https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb');
+  }
 
   //初期位置
   final CameraPosition _kGooglePlex = const CameraPosition(
@@ -90,10 +95,7 @@ class MapSampleState extends State<MapSample> {
         position: _kMapCenter2,
         infoWindow: InfoWindow(title: "2023/08/24", snippet: 'パパラピーズ'),
         //icon: pinLocationIcon,
-        onTap: () {
-          // ピンのタップ時の処理
-          _navigateToMarkerDetail('marker_2'); // ピンのIDを渡す
-        },
+        onTap: _launchAR,
       ),
     };
   }
