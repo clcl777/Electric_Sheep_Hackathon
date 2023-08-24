@@ -7,7 +7,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:metele/MarkerDetailScreen.dart';
 import 'package:native_ar_viewer/native_ar_viewer.dart';
 
-
 class MapPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,10 +31,9 @@ class MapSampleState extends State<MapSample> {
   late BitmapDescriptor pinLocationIcon;
 
   _launchAR() async {
-    await NativeArViewer.launchAR('https://github.com/clcl777/model_public/raw/main/model/judge.glb');
+    await NativeArViewer.launchAR(
+        'https://github.com/clcl777/model_public/raw/main/model/judge.glb');
   }
-
-
 
   //初期位置
   final CameraPosition _kGooglePlex = const CameraPosition(
@@ -65,12 +63,11 @@ class MapSampleState extends State<MapSample> {
     positionStream =
         Geolocator.getPositionStream(locationSettings: locationSettings)
             .listen((Position? position) {
-          currentPosition = position;
-          print(position == null
-              ? 'Unknown'
-              : '${position.latitude.toString()}, ${position.longitude
-              .toString()}');
-        });
+      currentPosition = position;
+      print(position == null
+          ? 'Unknown'
+          : '${position.latitude.toString()}, ${position.longitude.toString()}');
+    });
   }
 
   static final LatLng _kMapCenter2 = LatLng(35.1506868, 136.903314);
@@ -85,19 +82,18 @@ class MapSampleState extends State<MapSample> {
   _myDialog() {
     showDialog(
       context: context,
-      builder: (context) =>
-          AlertDialog(
-            title: const Text("離れすぎてるよ～"),
-            content: const Text("もう少し近づいたら見れるよ！"),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Text("close"),
-              )
-            ],
-          ),
+      builder: (context) => AlertDialog(
+        title: const Text("離れすぎてるよ～"),
+        content: const Text("もう少し近づいたら見れるよ！"),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text("close"),
+          )
+        ],
+      ),
     );
   }
 
