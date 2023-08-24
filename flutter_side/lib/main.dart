@@ -86,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                     // ここにボタンを押した時に呼ばれるコードを書く
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ARPage()),
+                      MaterialPageRoute(builder: (context) => MapPage()),
                     );
                   },
                 ),
