@@ -9,10 +9,12 @@ import 'package:metele/map.dart';
 
 import 'model.dart';
 //import 'package:login_ui/views/auth_page/login.dart';
-
+import 'package:flutter_config/flutter_config.dart';
 import 'nativeAR.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Required by FlutterConfig
+  await FlutterConfig.loadEnvVariables();
   runApp(const MyApp());
 }
 
@@ -54,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
             children: <Widget>[
               Padding(
                 padding:
-                const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                 child: TextFormField(
                   decoration: const InputDecoration(
                     labelText: 'ユーザー名を入力してください',
@@ -63,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Padding(
                 padding:
-                const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                 child: TextFormField(
                   obscureText: _isObscure,
                   decoration: InputDecoration(
