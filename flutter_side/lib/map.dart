@@ -32,7 +32,7 @@ class MapSampleState extends State<MapSample> {
   late BitmapDescriptor pinLocationIcon;
 
   _launchAR() async {
-    await NativeArViewer.launchAR('https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb');
+    await NativeArViewer.launchAR('https://github.com/clcl777/model_public/raw/main/model/judge.glb');
   }
 
 
