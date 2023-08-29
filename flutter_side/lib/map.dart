@@ -1,7 +1,5 @@
 import 'dart:async';
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:metele/MarkerDetailScreen.dart';
@@ -133,25 +131,24 @@ class MapSampleState extends State<MapSample> {
       Marker(
         markerId: MarkerId("marker_4"),
         position: _kMapCenter4,
-        infoWindow: InfoWindow(title: "2023/08/17", snippet: '好きピ'),        
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueMagenta),
-
+        infoWindow: InfoWindow(title: "2023/08/17", snippet: '好きピ'),
+        icon:
+            BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueMagenta),
         onTap: _launchAR,
       ),
       Marker(
         markerId: MarkerId("marker_5"),
         position: _kMapCenter5,
-        infoWindow: InfoWindow(title: "2023/07/24", snippet: '先輩'),        
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueMagenta),
-
+        infoWindow: InfoWindow(title: "2023/07/24", snippet: '先輩'),
+        icon:
+            BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueMagenta),
         onTap: _launchAR,
       ),
       Marker(
         markerId: MarkerId("marker_6"),
         position: _kMapCenter6,
-        infoWindow: InfoWindow(title: "2023/08/23", snippet: '友達'),        
+        infoWindow: InfoWindow(title: "2023/08/23", snippet: '友達'),
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
-
         onTap: _launchAR,
       ),
     };
