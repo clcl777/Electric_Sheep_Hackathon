@@ -1,16 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:metele/map.dart';
-//import 'package:flutter_side/model.dart';
-
-import 'model.dart';
-//import 'package:login_ui/views/auth_page/login.dart';
 import 'package:flutter_config/flutter_config.dart';
-import 'nativeAR.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Required by FlutterConfig
