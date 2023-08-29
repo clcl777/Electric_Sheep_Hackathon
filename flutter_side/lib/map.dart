@@ -30,7 +30,7 @@ class MapSampleState extends State<MapSample> {
 
   _launchAR() async {
     await NativeArViewer.launchAR(
-        'https://github.com/clcl777/model_public/raw/main/model/judge.glb');
+        'https://github.com/clcl777/Electric_Sheep_Hackathon/raw/main/3D_model/judge.glb');
   }
 
   //初期位置
