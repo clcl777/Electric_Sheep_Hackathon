@@ -32,6 +32,15 @@
 
 デモ動画
 
+
+
+
+https://github.com/clcl777/Electric_Sheep_Hackathon/assets/77223796/6bf73b1c-1b66-4f76-a3db-1d3004730986
+
+
+
+
+
 [発表スライド](https://docs.google.com/presentation/d/18Jk7s8fouqaPAAQmXVmnsxxeMUQpIu7z/edit#slide=id.p1)
 
 [Figmaデザイン](https://www.figma.com/file/Dpx0lWF7rnGAS4QW0djOih/electric_sheep?type=design&node-id=1%3A2&mode=design&t=1hBjysZMBdT8BXhY-1)
